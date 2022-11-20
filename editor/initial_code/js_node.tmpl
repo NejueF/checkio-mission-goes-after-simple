@@ -1,0 +1,25 @@
+{% comment %}New initial code template{% endcomment %}
+{% block env %}import assert from "assert";{% endblock env %}
+
+{% block start %}
+function goesAfter(word: string, first: string, second: string): boolean {
+    // your code here
+    return false;
+}
+{% endblock start %}
+
+{% block example %}
+console.log('Example:');
+console.log(goesAfter('world', 'w', 'o'));
+{% endblock %}
+
+// These "asserts" are used for self-checking
+{% block tests %}
+{% for t in tests %}
+assert.strictEqual({% block call %}goesAfter({{t.input|j_args}})
+{% endblock %}, {% block result %}{{t.answer|j}}{% endblock %});{% endfor %}
+{% endblock %}
+
+{% block final %}
+console.log("Coding complete? Click 'Check Solution' to earn rewards!");
+{% endblock final %}

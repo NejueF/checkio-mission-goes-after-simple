@@ -12,53 +12,53 @@ TESTS = {
     "Basics": [
         {
             "input": ['world', 'w', 'o'],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ['world', 'w', 'r'],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ['world', 'l', 'o'],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ['list', 'l', 'o'],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ['', 'l', 'o'],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ['list', 'l', 'l'],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ['world', 'd', 'w'],
-            "answer": False
+            "answer": False,
         },
     ],
     "Extra": [
         {
             "input": ['cable', 'l', 'b'],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ['cable', 'a', 'b'],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ['copyrightable', 'o', 'p'],
-            "answer": True
+            "answer": True,
         },
         {
             "input": ['copyrightable', 'o', 'a'],
-            "answer": False
+            "answer": False,
         },
         {
             "input": ['copyrightable', 'o', 'o'],
-            "answer": False
+            "answer": False,
         },
     ]
 }

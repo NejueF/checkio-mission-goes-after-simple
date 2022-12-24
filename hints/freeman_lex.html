@@ -1,0 +1,145 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <i>I have no idea how to start solving this mission.</i>
+    </div>
+    <div class="answer">
+        <p>
+            💡 Since all characters in the input <b class="code">word</b> are unique, you just need to check if substring from <b class="code">first</b> and <b class="code">second</b> characters is in the <b class="code">word</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Ok, what should I start from?</i>
+    </div>
+    <div class="answer">
+        <p>
+            For this particular solution we use finding starting index of substring in the string. In may be performed, using on of two string methods: <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> or <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a>. These methods also work with multi-chars substring. Let's compare their outputs:  
+        </p>
+        <pre class="brush: python">
+line = "table"
+# find
+print(line.find("b"))
+print(line.find("le"))
+print(line.find("x"))
+        </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+2
+3
+-1        
+            </pre>
+        </div>
+        <pre class="brush: python">
+# index
+print(line.index("b"))
+print(line.index("le"))
+print(line.index("x"))        
+        </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+2
+3
+ValueError: substring not found
+            </pre>
+        </div>
+        <p>
+            Let's use the second one, which returns <b class="code">-1</b> in case of absence substring in the string. It makes your solution simpler and shorter.
+        </p>
+        <pre class="brush: python">
+word.find(...) # returns starting index of substr (if present) or -1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            I need help with the argument of find() method.
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            The <b class="code">second</b> character must go right after the <b class="code">first</b>. It means, that we are looking for the substring <b class="code">first + second</b>.
+        </p>
+        <p>
+            For example, in the string <b class="code">"table"</b>, <b class="code">"b"</b> goes right after <b class="code">"a"</b> - not any character is between them. Since <b class="code">find()</b> may take multi-chars argument, we may say, that we are looking for <b class="code">"a" + "b" -> "ab"</b> substring in the <b class="code">"table"</b> string.
+        </p>
+        <pre class="brush: python">
+word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>
+            This method returns a number (index or <b class="code">-1</b>). How to get bool from it?
+        </i>
+    </div>
+    <div class="answer">
+        <p>
+            Your function should return <b class="code">True</b>, if substring is present in the <b class="code">word</b>. It means, that the starting index (result of <b class="code">find</b> method) have not to be equal <b class="code">-1</b> (bigger, since it can't be lesser). Let's compare them and get boolean value in such a way.
+        </p>
+        <pre class="brush: python">
+-1 != word.find(first + second)
+# or
+-1 < word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>So, how my final solution should look like?</i>
+    </div>
+    <div class="answer">
+        <p>
+            You just need to wrap your code into function expression and return the result of the comparison.
+        </p>
+        <p>Here is the whole solution:</p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Show me more solutions!<br />
+        'Cause I wanna be a real 🥇 Python Ninnjaa!</i>
+    </div>
+    <div class="answer">
+        <p>Sure, grab it!</p>
+        <p>
+            You also may check presence with <b class="code">in</b> operator.
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return first + second in word
+        </pre>
+        <p>
+            The other method <b class="code">index()</b> is used here, which raises an error (ValueError) in case of substring absence.
+        </p>
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(first) - word.index(second) == -1
+    except:
+        return False
+        </pre>
+        <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <i>Thanks! I know and understand more now! Everything works fine!</i>
+    </div>
+    <div class="answer">
+        👍 Glad to hear it!
+    </div>
+</div>
+</body>

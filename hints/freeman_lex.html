@@ -15,10 +15,39 @@
     </div>
     <div class="answer">
         <p>
-            For this particular solution we use finding starting index of substring in the string. In may be performed, using on of two string methods: <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> or <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a>.  
+            For this particular solution we use finding starting index of substring in the string. In may be performed, using on of two string methods: <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> or <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a>. These methods also work with multi-chars substring. Let's compare their outputs:  
         </p>
+        <pre class="brush: python">
+line = "table"
+# find
+print(line.find("b"))
+print(line.find("le"))
+print(line.find("x"))
+        </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+2
+3
+-1        
+            </pre>
+        </div>
+        <pre class="brush: python">
+# index
+print(line.index("b"))
+print(line.index("le"))
+print(line.index("x"))        
+        </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+2
+3
+ValueError: substring not found
+            </pre>
+        </div>
         <p>
-            Let's use the second one, which returns <b class="code">-1</b> in case of absence substring in the string.
+            Let's use the second one, which returns <b class="code">-1</b> in case of absence substring in the string. It makes your solution simpler and shorter.
         </p>
         <pre class="brush: python">
 word.find(...) # returns starting index of substr (if present) or -1
@@ -33,7 +62,10 @@ word.find(...) # returns starting index of substr (if present) or -1
     </div>
     <div class="answer">
         <p>
-            The <b class="code">second</b> character must go right after the <b class="code">first</b>. It means, that we are looking for the substring <b class="code">first + second</b>.  
+            The <b class="code">second</b> character must go right after the <b class="code">first</b>. It means, that we are looking for the substring <b class="code">first + second</b>.
+        </p>
+        <p>
+            For example, in the string <b class="code">"table"</b>, <b class="code">"b"</b> goes right after <b class="code">"a"</b> - not any character is between them. Since <b class="code">find()</b> may take multi-chars argument, we may say, that we are looking for <b class="code">"a" + "b" -> "ab"</b> substring in the <b class="code">"table"</b> string.
         </p>
         <pre class="brush: python">
 word.find(first + second)
@@ -95,8 +127,8 @@ def goes_after(word: str, first: str, second: str) -> bool:
 def goes_after(word: str, first: str, second: str) -> bool:
 
     try:
-        return word.index(first + second) > -1
-    except ValueError:
+        return word.index(first) - word.index(second) == -1
+    except:
         return False
         </pre>
         <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>

@@ -15,10 +15,39 @@
     </div>
     <div class="answer">
         <p>
-            Для цього конкретного рішення ми використовуємо пошук початкового індексу підрядка в рядку. Це може бути реалізовано, використовуючи один із двох рядкових методів: <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> або <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a>.  
+            Для цього конкретного рішення ми використовуємо пошук початкового індексу підрядка в рядку. Це може бути реалізовано, використовуючи один із двох рядкових методів: <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> або <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a>. Ці методи також працюють з багатосимвольними підрядками. Давай порівняємо виведення результатів цих методів:  
         </p>
+        <pre class="brush: python">
+line = "table"
+# find
+print(line.find("b"))
+print(line.find("le"))
+print(line.find("x"))
+        </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+2
+3
+-1        
+            </pre>
+        </div>
+        <pre class="brush: python">
+# index
+print(line.index("b"))
+print(line.index("le"))
+print(line.index("x"))        
+        </pre>
+        <div class="output">
+            <p>Output:</p>
+            <pre>
+2
+3
+ValueError: substring not found
+            </pre>
+        </div>
         <p>
-            Давай використаємо другий, який повертає <b class="code">-1</b> у випадку відсутності підрядка в рядку.
+            Давай використаємо другий, який повертає <b class="code">-1</b> у випадку відсутності підрядка в рядку. Це зробить твій розв'язок простішим і коротшим.
         </p>
         <pre class="brush: python">
 word.find(...) # повертає початковий індекс підрядка (якщо присутній) або -1
@@ -34,6 +63,9 @@ word.find(...) # повертає початковий індекс підряд
     <div class="answer">
         <p>
             Символ <b class="code">second</b> повинен іти відразу після <b class="code">first</b>. Це означає, що ми шукаємо підрядок <b class="code">first + second</b>.  
+        </p>
+        <p>
+            Наприклад, в рядку <b class="code">"table"</b>, <b class="code">"b"</b> йде відразу після <b class="code">"a"</b> - немає жодного символу між ними. Оскільки <b class="code">find()</b> може приймати багатосимвольний аргумент, ми можемо сказати, що шукаємо підрядок <b class="code">"a" + "b" -> "ab"</b> в рядку <b class="code">"table"</b>.
         </p>
         <pre class="brush: python">
 word.find(first + second)
@@ -95,8 +127,8 @@ def goes_after(word: str, first: str, second: str) -> bool:
 def goes_after(word: str, first: str, second: str) -> bool:
 
     try:
-        return word.index(first + second) > -1
-    except ValueError:
+        return word.index(first) - word.index(second) == -1
+    except:
         return False
         </pre>
         <p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>

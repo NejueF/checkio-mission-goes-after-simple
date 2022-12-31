@@ -15,7 +15,7 @@
     </div>
     <div class="answer">
         <p>
-            For this particular solution we use finding starting index of substring in the string. In may be performed, using on of two string methods: <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> or <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a>. These methods also work with multi-chars substring. Let's compare their outputs:  
+            For this particular solution we use finding starting index of substring in the string. In may be performed, using one of two string methods: <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> or <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a>. These methods also work with multi-chars substring. Let's compare their outputs:  
         </p>
         <pre class="brush: python">
 line = "table"
@@ -47,7 +47,7 @@ ValueError: substring not found
             </pre>
         </div>
         <p>
-            Let's use the second one, which returns <b class="code">-1</b> in case of absence substring in the string. It makes your solution simpler and shorter.
+            Let's use the first one, which returns <b class="code">-1</b> in case of absence substring in the string. It makes your solution simpler and shorter.
         </p>
         <pre class="brush: python">
 word.find(...) # returns starting index of substr (if present) or -1

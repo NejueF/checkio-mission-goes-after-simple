@@ -98,11 +98,13 @@ word.find(first + second)
             You just need to wrap your code into function expression and return the result of the comparison.
         </p>
         <p>Here is the whole solution:</p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return -1 < word.find(first + second)
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -115,14 +117,17 @@ def goes_after(word: str, first: str, second: str) -> bool:
         <p>
             You also may check presence with <b class="code">in</b> operator.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return first + second in word
         </pre>
+        </div>
         <p>
             The other method <b class="code">index()</b> is used here, which raises an error (ValueError) in case of substring absence.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
@@ -131,6 +136,7 @@ def goes_after(word: str, first: str, second: str) -> bool:
     except:
         return False
         </pre>
+        </div>
         <p><b>Click "Best solutions" at mission menu and see a lot of other interesting solutions!</b></p>
     </div>
 </div>

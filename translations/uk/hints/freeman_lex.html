@@ -98,11 +98,13 @@ word.find(first + second)
             Тобі просто потрібно обгорнути свій код у вираз функції та повернути результат порівняння.
         </p>
         <p>Ось остаточний розв'язок:</p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return -1 < word.find(first + second)
         </pre>
+        </div>
     </div>
 </div>
 <div class="question-answer">
@@ -115,14 +117,17 @@ def goes_after(word: str, first: str, second: str) -> bool:
         <p>
             Також, ти можеш перевірити наявність підрядка в рядку з допомогою оператора <b class="code">in</b>.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
     return first + second in word
         </pre>
+        </div>
         <p>
             Інший метод <b class="code">index()</b> використаний тут, він викликає помилку (ValueError) у випадку відсутності підрядка.
         </p>
+        <div class="spoiler">
         <pre class="brush: python">
 def goes_after(word: str, first: str, second: str) -> bool:
 
@@ -131,6 +136,7 @@ def goes_after(word: str, first: str, second: str) -> bool:
     except:
         return False
         </pre>
+        </div>
         <p><b>Тисни "Best solutions" в меню місії і побачиш багато інших цікавих розв'язків!</b></p>
     </div>
 </div>

@@ -5,7 +5,7 @@
     </div>
     <div class="answer">
         <p>
-            💡 Comme tous les caractères du <b class="code">mot d'</b> entrée sont uniques, il vous suffit de vérifier si la sous-chaîne du <b class="code">premier</b> et du <b class="code">deuxième</b> caractère se trouve dans le <b class="code">mot</b>.
+            💡 Comme tous les caractères du <b class="code">word</b> d'entrée sont uniques, il vous suffit de vérifier si la sous-chaîne du <b class="code">premier</b> et du <b class="code">deuxième</b> caractère se trouve dans le <b class="code">word</b>.
         </p>
     </div>
 </div>
@@ -15,7 +15,7 @@
     </div>
     <div class="answer">
         <p>
-            Pour cette solution particulière, nous utilisons la recherche de l'indice de départ de la sous-chaîne dans la chaîne. Cette opération peut être effectuée en utilisant l'une des deux méthodes suivantes: str <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">.find()</a> ou <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a>. Ces méthodes fonctionnent également avec des sous-chaînes à plusieurs caractères. Comparons leurs résultats: 
+            Pour cette solution particulière, nous utilisons la recherche de l'indice de départ de la sous-chaîne dans la chaîne. Cette opération peut être effectuée en utilisant l'une des deux méthodes suivantes: <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> ou <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a>. Ces méthodes fonctionnent également avec des sous-chaînes à plusieurs caractères. Comparons leurs résultats: 
         </p>
         <pre class="brush: python">
 line = "table"
@@ -65,7 +65,7 @@ word.find(...) # returns starting index of substr (if present) or -1
             Le <b class="code">deuxième</b> caractère doit être placé juste après le <b class="code">premier</b>. Cela signifie que nous recherchons la chaîne de caractères <b class="code">first + second</b>.
         </p>
         <p>
-            Par exemple, dans la chaîne <b class="code">"table"</b>, <b class="code">"b"</b> se trouve juste après <b class="code">"a"</b> - il n'y a aucun caractère entre les deux. Puisque <b class="code">find()</b> peut prendre plusieurs caractères en argument, nous pouvons dire que nous recherchons la sous-chaîne " <b class="code">a" + "b" -&gt; "ab"</b> dans la chaîne <b class="code">"table"</b>.
+            Par exemple, dans la chaîne <b class="code">"table"</b>, <b class="code">"b"</b> se trouve juste après <b class="code">"a"</b> - il n'y a aucun caractère entre les deux. Puisque <b class="code">find()</b> peut prendre plusieurs caractères en argument, nous pouvons dire que nous recherchons la sous-chaîne <b class="code">"a" + "b" -&gt; "ab"</b> dans la chaîne <b class="code">"table"</b>.
         </p>
         <pre class="brush: python">
 word.find(first + second)
@@ -80,7 +80,7 @@ word.find(first + second)
     </div>
     <div class="answer">
         <p>
-            Votre fonction doit retourner <b class="code">True</b>, si la sous-chaîne est présente dans le <b class="code">mot</b>. Cela signifie que l'index de départ (résultat de la méthode <b class="code">find</b> ) ne doit pas être égal à <b class="code">-1</b> (plus grand, puisqu'il ne peut pas être inférieur). Comparons-les et obtenons une valeur booléenne de cette manière.
+            Votre fonction doit retourner <b class="code">True</b>, si la sous-chaîne est présente dans le <b class="code">word</b>. Cela signifie que l'index de départ (résultat de la méthode <b class="code">find</b> ) ne doit pas être égal à <b class="code">-1</b> (plus grand, puisqu'il ne peut pas être inférieur). Comparons-les et obtenons une valeur booléenne de cette manière.
         </p>
         <pre class="brush: python">
 -1!= word.find(first + second)

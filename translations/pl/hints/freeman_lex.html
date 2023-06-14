@@ -1,0 +1,151 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>Nie mam pojęcia, jak zacząć rozwiązywać tę misję.</p>
+    </div>
+    <div class="answer">
+        <p>
+            ponieważ wszystkie znaki na wejściu <b class="code">word</b> są unikalne, musi Pan tylko sprawdzić, czy podciąg ze znaków <b class="code">first</b> i <b class="code">second</b> znajduje się w <b class="code">word</b>.
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Ok, od czego powinienem zacząć?</p>
+    </div>
+    <div class="answer">
+        <p>
+            W tym konkretnym rozwiązaniu używamy znalezienia indeksu początkowego podciągu w łańcuchu. Można to zrobić za pomocą jednej z dwóch metod łańcuchowych: <a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> lub <a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a>. Metody te działają również z podciągami wieloznakowymi. Proszę porównać ich wyniki:  
+        </p>
+        <pre class="brush: python">
+line = "table"
+# find
+print(line.find("b"))
+print(line.find("le"))
+print(line.find("x"))
+        </pre>
+        <div class="output">
+            <p>Wyjście:</p>
+            <pre>
+2
+3
+-1        
+            </pre>
+        </div>
+        <pre class="brush: python">
+# index
+print(line.index("b"))
+print(line.index("le"))
+print(line.index("x"))        
+        </pre>
+        <div class="output">
+            <p>Wyjście:</p>
+            <pre>
+2
+3
+ValueError: substring not found
+            </pre>
+        </div>
+        <p>
+            Użyjmy pierwszego z nich, który zwraca <b class="code">-1</b> w przypadku braku podciągu w ciągu. Dzięki temu Państwa rozwiązanie będzie prostsze i krótsze.
+        </p>
+        <pre class="brush: python">
+word.find(...) # returns starting index of substr (if present) or -1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Potrzebuję pomocy z argumentem metody find().
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Znak <b class="code">second</b> musi znajdować się zaraz po <b class="code">first</b>. Oznacza to, że szukamy podciągu <b class="code">first + second</b>.
+        </p>
+        <p>
+            Na przykład w ciągu <b class="code">"table"</b>, <b class="code">"b"</b> znajduje się zaraz po <b class="code">"a"</b> - nie ma między nimi żadnego znaku. Ponieważ <b class="code">find()</b> może przyjmować argumenty wieloznakowe, możemy powiedzieć, że szukamy podciągu <b class="code">"a" + "b" -> "ab"</b> w ciągu <b class="code">"table"</b>.
+        </p>
+        <pre class="brush: python">
+word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            Metoda ta zwraca liczbę (indeks lub <b class="code">-1</b>). Jak uzyskać z niej wartość bool?
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            Państwa funkcja powinna zwrócić <b class="code">True</b>, jeśli podciąg jest obecny w <b class="code">word</b>. Oznacza to, że indeks początkowy (wynik metody <b class="code">find</b> ) nie musi być równy <b class="code">-1</b> (większy, ponieważ nie może być mniejszy). Porównajmy je i uzyskajmy w ten sposób wartość logiczną.
+        </p>
+        <pre class="brush: python">
+-1!= word.find(first + second)
+# or
+-1 < word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Jak więc powinno wyglądać moje ostateczne rozwiązanie?</p>
+    </div>
+    <div class="answer">
+        <p>
+            Wystarczy zawinąć kod w wyrażenie funkcyjne i zwrócić wynik porównania.
+        </p>
+        <p>Oto całe rozwiązanie:</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second)
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Proszę pokazać mi więcej rozwiązań!<br />
+        bo chcę być prawdziwym 🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>Jasne, proszę łapać!</p>
+        <p>
+            Mogą Państwo również sprawdzić obecność za pomocą operatora <b class="code">in</b>.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return first + second in word
+        </pre>
+        </div>
+        <p>
+            W tym przypadku używana jest inna metoda <b class="code">index()</b>, która zgłasza błąd (ValueError) w przypadku braku podciągu.
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(first) - word.index(second) == -1
+    except:
+        return False
+        </pre>
+        </div>
+        <p>Proszę kliknąć <b>Best Solutions</b> w menu misji i zobaczyć wiele innych ciekawych rozwiązań!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>Dzięki! Teraz wiem i rozumiem więcej! Wszystko działa dobrze!</p>
+    </div>
+    <div class="answer">
+        miło mi to słyszeć!
+    </div>
+</div>
+</body>

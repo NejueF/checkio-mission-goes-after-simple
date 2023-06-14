@@ -8,10 +8,10 @@
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input:</strong> Three arguments. The first one is a given <span translate="repeat">string</span>, second is a symbol that should go first, and the third is a symbol that should go after the first one.
+    <strong>Input:</strong> Three arguments. The first one is a given string <span translate="no">{% if is_js %}(string){% else %}(str){% endif %}</span>, second is a symbol <span translate="no">{% if is_js %}(string){% else %}(str){% endif %}</span> that should go first, and the third is a symbol <span translate="no">{% if is_js %}(string){% else %}(str){% endif %}</span> that should go after the first one.
 </p>
 <p>
-    <strong>Output:</strong> A {% if is_js %}<span translate="repeat">boolean</span>{% else %}<span translate="repeat">bool</span>{% endif %}.
+    <strong>Output:</strong> A logic value <span translate="no">{% if is_js %}(boolean){% else %}(bool){% endif %}</span>.
 </p>
 
 <!-- Give some usage examples -->

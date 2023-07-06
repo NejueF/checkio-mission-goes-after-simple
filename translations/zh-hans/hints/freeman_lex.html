@@ -1,0 +1,151 @@
+<body data-author="freeman_lex">
+<div class="question-answer">
+    <div class="question">
+        <p>我不知道如何开始解决这个任务。</p>
+    </div>
+    <div class="answer">
+        <p>
+            💡 由于输入的<b class="code">word</b> 中的所有字符都是唯一的，你只需要检查<b class="code">first</b> 和<b class="code">second</b> 的子串是否在<b class="code">word</b> 中。
+        </p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>好吧，我应该从什么开始呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            对于这个特殊的解决方案，我们使用寻找字符串中子串的起始索引。可以使用两种字符串方法中的一种：<a target="_blank" href="https://www.w3schools.com/python/ref_string_find.asp">str.find()</a> 或<a target="_blank" href="https://www.w3schools.com/python/ref_string_index.asp">str.index()</a> 。这些方法也适用于多字符子串。让我们比较一下它们的输出结果：  
+        </p>
+        <pre class="brush: python">
+line = "table"
+# find
+print(line.find("b"))
+print(line.find("le"))
+print(line.find("x"))
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+2
+3
+-1        
+            </pre>
+        </div>
+        <pre class="brush: python">
+# index
+print(line.index("b"))
+print(line.index("le"))
+print(line.index("x"))        
+        </pre>
+        <div class="output">
+            <p>输出：</p>
+            <pre>
+2
+3
+ValueError: substring not found
+            </pre>
+        </div>
+        <p>
+            让我们使用第一种方法，它在字符串中没有子串的情况下返回<b class="code">-1</b> 。它使你的解决方案更加简单和简短。
+        </p>
+        <pre class="brush: python">
+word.find(...) # returns starting index of substr (if present) or -1
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            我需要关于find()方法的参数的帮助。
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            <b class="code">second</b> 字符必须紧跟在<b class="code">first</b> 之后。这意味着，我们要寻找的是子串<b class="code">first + second</b> 。
+        </p>
+        <p>
+            例如，在字符串<b class="code">"table"</b> 中，<b class="code">"b"</b> 紧跟在<b class="code">"a"</b> 之后 - 它们之间没有任何字符。由于<b class="code">find()</b> 可以接受多个字符的参数，我们可以说，我们正在寻找<b class="code">"table"</b> 字符串中的<b class="code">"a" + "b" -> "ab"</b> 子串。
+        </p>
+        <pre class="brush: python">
+word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>
+            该方法返回一个数字（索引或<b class="code">-1</b> ）。如何从它那里得到bool？
+        </p>
+    </div>
+    <div class="answer">
+        <p>
+            你的函数应该返回<b class="code">True</b> ，如果子串存在于<b class="code">word</b> 。这意味着，起始索引（<b class="code">find</b> 方法的结果）必须不等于<b class="code">-1</b> （更大，因为它不可能更小）。让我们用这样的方式来比较它们并获得布尔值。
+        </p>
+        <pre class="brush: python">
+-1!= word.find(first + second)
+# or
+-1 < word.find(first + second)
+        </pre>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>那么，我的最终解决方案应该是什么样子的呢？</p>
+    </div>
+    <div class="answer">
+        <p>
+            你只需要把你的代码包装成函数表达式并返回比较的结果。
+        </p>
+        <p>下面是整个解决方案：</p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return -1 < word.find(first + second)
+        </pre>
+        </div>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>告诉我更多的解决方案!<br />
+        因为我想成为一个真正的🥇 Python Ninnjaa!</p>
+    </div>
+    <div class="answer">
+        <p>当然，抓住它!</p>
+        <p>
+            你也可以用<b class="code">in</b> 运算器来检查存在。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    return first + second in word
+        </pre>
+        </div>
+        <p>
+            这里使用了另一个方法<b class="code">index()</b> ，在子串不存在的情况下会引发一个错误（ValueError）。
+        </p>
+        <div class="spoiler">
+        <pre class="brush: python">
+def goes_after(word: str, first: str, second: str) -> bool:
+
+    try:
+        return word.index(first) - word.index(second) == -1
+    except:
+        return False
+        </pre>
+        </div>
+        <p>点击任务菜单中的<b>Best Solutions</b> ，可以看到很多其他有趣的解决方案!</p>
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        <p>谢谢!我现在知道并理解了更多!一切运作正常</p>
+    </div>
+    <div class="answer">
+        👍很高兴听到这个消息!
+    </div>
+</div>
+</body>

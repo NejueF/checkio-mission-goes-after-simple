@@ -6,7 +6,9 @@
 <p>
     Jeśli jeden z symboli nie znajduje się w podanym słowie - funkcja powinna zwrócić <b class="code">{% if is_js %}false{% else %}False{% endif %}</b>. Jeśli dwa szukane symbole są takie same - funkcja powinna zwrócić {% if is_js %}<b class="code">false</b> {% else %} <b class="code">False</b> {% endif %}.
 </p>
-
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}goes-right-after.png" alt="example" style="max-height: 200px"/>
+</p>
 <!-- Explain input and output values -->
 <p>
    <strong>Wejście:</strong> Trzy argumenty. Pierwszy to podany ciąg znaków <span>{% if is_js %}(string){% else %}(str){% endif %}</span>, drugi to symbol <span>{% if is_js %}(string){% else %}(str){% endif %}</span> który powinien pojawić się jako pierwszy, a trzeci to symbol <span>{% if is_js %}(string){% else %}(str){% endif %}</span> który powinien pojawić się po pierwszym.

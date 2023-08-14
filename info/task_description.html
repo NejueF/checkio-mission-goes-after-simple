@@ -1,18 +1,22 @@
 <!-- Describe task in general -->
 <img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
 <p> 
-    In a given string you need to check if one symbol goes right after another. If so - return <b class="code">{% if is_js %}true{% else %}True{% endif %}</b>, otherwise - <b class="code">{% if is_js %}false{% else %}False{% endif %}</b>. 
+    In a given string you need to check if one symbol goes right after another. If so - return <b class="code">{% if is_js %}t{% else %}T{% endif %}rue</b>, otherwise - <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>. 
 </p>
 <p>
-    If one of the symbols is not in the given word - your function should return <b class="code">{% if is_js %}false{% else %}False{% endif %}</b>. If two seeking symbols are the same - your function should return {% if is_js %}<b class="code">false</b>{% else %}<b class="code">False</b>{% endif %}.
+    If one of the symbols is not in the given word - your function should return <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>. If two seeking symbols are the same - your function should return <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}goes-right-after.png" alt="example" style="max-height: 200px"/>
 </p>
 
 <!-- Explain input and output values -->
 <p>
-    <strong>Input:</strong> Three arguments. The first one is a given string <span translate="no">{% if is_js %}(string){% else %}(str){% endif %}</span>, second is a symbol <span translate="no">{% if is_js %}(string){% else %}(str){% endif %}</span> that should go first, and the third is a symbol <span translate="no">{% if is_js %}(string){% else %}(str){% endif %}</span> that should go after the first one.
+    <strong>Input:</strong> Three arguments. The first one is a given string <span translate="no">(str{% if is_js %}ing{% endif %})</span>, second is a symbol <span translate="no">(str{% if is_js %}ing{% endif %})</span> that should go first, and the third is a symbol <span translate="no">(str{% if is_js %}ing{% endif %})</span> that should go after the first one.
 </p>
 <p>
-    <strong>Output:</strong> A logic value <span translate="no">{% if is_js %}(boolean){% else %}(bool){% endif %}</span>.
+    <strong>Output:</strong> A logic value <span translate="no">(bool{% if is_js %}ean{% endif %})</span>.
 </p>
 
 <!-- Give some usage examples -->

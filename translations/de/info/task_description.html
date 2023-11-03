@@ -1,0 +1,35 @@
+<!-- Describe task in general -->
+<img src="{{MEDIA_CONVERT}}title.png" class="title_img" />
+<p> 
+    In einer gegebenen Zeichenkette müssen Sie prüfen, ob ein Symbol direkt auf ein anderes folgt. Wenn ja - Rückgabe <b class="code">{% if is_js %}t{% else %}T{% endif %}rue</b>, andernfalls - <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>. 
+</p>
+<p>
+    Wenn eines der Symbole nicht im angegebenen Wort vorkommt - sollte Ihre Funktion zurückgeben <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>. Wenn zwei gesuchte Symbole gleich sind - sollte Ihre Funktion zurückgeben <b class="code">{% if is_js %}f{% else %}F{% endif %}alse</b>.
+</p>
+
+<p style="text-align: center;">
+    <img  title="example" src="{{MEDIA}}goes-right-after.png" alt="example" style="max-height: 200px"/>
+</p>
+
+<!-- Explain input and output values -->
+<p>
+   <strong>Eingabe:</strong> Drei Argumente. Das erste ist eine gegebene Zeichenkette <span>(str{% if is_js %}ing{% endif %})</span>, das zweite ist ein Symbol <span>(str{% if is_js %}ing{% endif %})</span> das an erster Stelle stehen soll, und das dritte ist ein Symbol <span>(str{% if is_js %}ing{% endif %})</span> das nach dem ersten kommen soll.
+</p>
+<p>
+   <strong>Ausgabe:</strong> Ein logischer Wert <span>(bool{% if is_js %}ean{% endif %})</span>.
+</p>
+
+<!-- Give some usage examples -->
+<div class="for_info_only">
+    <p>
+        <strong>Beispiele:</strong>
+    </p>
+    <pre class="brush: {% if is_js %}javascript{% else %}python{% endif %}">{{init_code_tmpl}}</pre>
+</div>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p>
+    <strong>Vorbedingungen:</strong>
+    <i>alle Symbole sind kleingeschrieben und eindeutig.</i>
+</p>

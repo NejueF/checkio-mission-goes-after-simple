@@ -38,6 +38,11 @@ TESTS = {
             "input": ['world', 'd', 'w'],
             "answer": False,
         },
+        #I suggest these changes because without them the problem can be solved with the wrong code
+        {
+            "input": ['mankind', 'n', 'n'],
+            "answer": False,
+        },
     ],
     "Extra": [
         {
